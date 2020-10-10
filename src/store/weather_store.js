@@ -23,14 +23,14 @@ export default class WeatherStore {
       const res = await Axios.get(
         `http://api.openweathermap.org/data/2.5/forecast?q=Kathmandu&units=${units}&APPID=${appId}`
       );
-      this.setWeatherData(res.data);
+      this.filterAndSetData(res.data);
     } catch (e) {
       console.log("Error", e);
     }
   };
 
   @action
-  setWeatherData = (data) => {
+  filterAndSetData = (data) => {
     let requiredData = [];
     data.list.forEach((item, i) => {
       const dt = item.dt;
