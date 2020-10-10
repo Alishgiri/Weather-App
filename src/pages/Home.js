@@ -39,7 +39,7 @@ class Home extends React.Component {
     return (
       <Container>
         <h1 className="mt-3">Weather App</h1>
-        <Paper className="p-5 mt-4">
+        <Paper className="p-3 p-md-5 mt-4">
           <Row>
             <Col className="d-flex justify-content-center">
               <FormControlLabel
