@@ -1,15 +1,24 @@
-import { useObserver } from "mobx-react";
-import React, { useContext } from "react";
+import React from "react";
+import { inject, observer } from "mobx-react";
 
-import { storeContext } from "..";
+import { StoreContext } from "..";
 
-export default function Home() {
-  const store = useContext(storeContext);
-  return useObserver(() => (
-    <div className="container">
-      <div className="col">
-        <h1>Weather App</h1>
+@inject((stores) => ({
+  userStore: stores.userStore,
+  authStore: stores.authStore,
+}))
+
+@observer
+class Home extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <div className="col">
+          <h1>Weather App</h1>
+        </div>
       </div>
-    </div>
-  ));
+    );
+  }
 }
+
+export default Home;
