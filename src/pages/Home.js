@@ -43,6 +43,11 @@ class Home extends React.Component {
               />
             </Col>
           </Row>
+          <Row>
+            <Col></Col>
+            <Col></Col>
+            <Col></Col>
+          </Row>
         </Paper>
       </Container>
     );
