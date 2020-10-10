@@ -2,6 +2,7 @@ import Axios from "axios";
 import { action, observable, makeObservable } from "mobx";
 
 import { appId } from "../util/constants";
+import { checkIfSameDate } from "../util/date_time";
 
 export default class WeatherStore {
   @observable isCelcius = false;
@@ -26,7 +27,18 @@ export default class WeatherStore {
   };
 
   @action
-  setWeatherData = (data) => (this.weatherData = data);
+  setWeatherData = (data) => {
+    let requiredData = [];
+    data.list.forEach((item, i) => {
+      const dt = item.dt;
+      if (this.prevDate && checkIfSameDate(this.prevDate, item.dt)) {
+        return null;
+      }
+      this.prevDate = dt;
+      requiredData.push(item);
+    });
+    this.weatherData = requiredData;
+  };
 
   @action
   setIsCelcius = (value = true) => (this.isCelcius = value);
