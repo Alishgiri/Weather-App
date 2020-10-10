@@ -1,22 +1,22 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 
-import { StoreContext } from "..";
+import { Col, Container } from "react-bootstrap";
 
-@inject((stores) => ({
-  userStore: stores.userStore,
-  authStore: stores.authStore,
-}))
-
+@inject("weatherStore")
 @observer
 class Home extends React.Component {
   render() {
+    const {
+      weatherStore: { weatherData },
+    } = this.props;
+    console.log("weatherData", weatherData);
     return (
-      <div className="container">
-        <div className="col">
+      <Container>
+        <Col>
           <h1>Weather App</h1>
-        </div>
-      </div>
+        </Col>
+      </Container>
     );
   }
 }
