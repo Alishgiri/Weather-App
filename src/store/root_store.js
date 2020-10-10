@@ -1,9 +1,7 @@
-const { default: WeatherStore } = require("./weather_store");
+import WeatherStore from "./weather_store";
 
-class RootStore {
+export default class RootStore {
   constructor() {
     this.weatherStore = new WeatherStore(this);
   }
 }
-
-export default RootStore;

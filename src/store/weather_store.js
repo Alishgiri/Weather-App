@@ -3,27 +3,24 @@ import { action, observable, makeObservable } from "mobx";
 
 import { appId } from "../util/constants";
 
-class WeatherStore {
-  weatherData = null;
+export default class WeatherStore {
+  @observable.ref weatherData = null;
 
   constructor() {
-    makeObservable(this, {
-      weatherData: observable,
-      fetchWeatherData: action,
-    });
-    this.fetchWeatherData();
+    makeObservable(this);
   }
 
-  async fetchWeatherData() {
+  fetchWeatherData = async () => {
     try {
       const res = await Axios.get(
         `http://api.openweathermap.org/data/2.5/forecast?q=Kathmandu&APPID=${appId}`
       );
-      this.weatherData = res.data;
+      this.setWeatherData(res.data);
     } catch (e) {
       console.log("Error", e);
     }
-  }
-}
+  };
 
-export default WeatherStore;
+  @action
+  setWeatherData = (data) => (this.weatherData = data);
+}
