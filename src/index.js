@@ -3,16 +3,18 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
-import weatherStore from "./store/weather_store";
+import RootStore from "./store/root_store";
 import * as serviceWorker from "./serviceWorker";
 import Initialize from "./components/Initialize";
 
-export const storeContext = React.createContext();
+export const StoreContext = React.createContext();
+
+const rootStore = new RootStore();
 
 ReactDOM.render(
-  <storeContext.Provider value={weatherStore}>
+  <StoreContext.Provider value={rootStore}>
     <Initialize />
-  </storeContext.Provider>,
+  </StoreContext.Provider>,
   document.getElementById("root")
 );
 

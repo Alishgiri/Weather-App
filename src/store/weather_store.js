@@ -26,5 +26,4 @@ class WeatherStore {
   }
 }
 
-const weatherStore = new WeatherStore();
-export default weatherStore;
+export default WeatherStore;
