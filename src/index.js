@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
 import RootStore from "./store/root_store";
+import Initialize from "./pages/Initialize";
 import * as serviceWorker from "./serviceWorker";
-import Initialize from "./components/Initialize";
 
 const rootStore = new RootStore();
 ReactDOM.render(
