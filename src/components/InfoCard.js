@@ -8,12 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 200,
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
+    padding: 5,
+    minWidth: 120,
   },
   title: {
     fontSize: 14,
@@ -36,7 +32,7 @@ export default function InfoCard({ convertedDate, isCelcius, temp, humidity }) {
         >
           {convertedDate}
         </Typography>
-        <Typography variant="h2" component="h2">
+        <Typography variant="h6" component="h6">
           {temp}
           {isCelcius ? "˚C" : "˚F"}
         </Typography>
