@@ -5,11 +5,14 @@ import { appId } from "../util/constants";
 import { checkIfSameDate } from "../util/date_time";
 
 export default class WeatherStore {
+  weatherData;
   @observable isCelcius = false;
+  @observable visibleWeatherData;
   @observable isRefreshing = false;
-  @observable.ref weatherData = null;
 
   constructor() {
+    this.visibleDateEnd = 3;
+    this.visibleDateStart = 0;
     makeObservable(this);
   }
 
@@ -38,6 +41,33 @@ export default class WeatherStore {
       requiredData.push(item);
     });
     this.weatherData = requiredData;
+    this.visibleWeatherData = requiredData.slice(
+      this.visibleDateStart,
+      this.visibleDateEnd
+    );
+  };
+
+  @action
+  onVisibleDateForward = () => {
+    if (this.visibleDateEnd === this.weatherData.length) return;
+    this.visibleDateEnd++;
+    this.visibleDateStart++;
+    this.resetVisibleDate();
+  };
+
+  @action
+  onVisibleDateBack = () => {
+    if (this.visibleDateStart === 0) return;
+    this.visibleDateEnd--;
+    this.visibleDateStart--;
+    this.resetVisibleDate();
+  };
+
+  resetVisibleDate = () => {
+    this.visibleWeatherData = this.weatherData.slice(
+      this.visibleDateStart,
+      this.visibleDateEnd
+    );
   };
 
   @action
