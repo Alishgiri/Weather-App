@@ -8,12 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
+    padding: 5,
+    minWidth: 120,
   },
   title: {
     fontSize: 14,
@@ -23,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LoadingCard({isCelcius}) {
+export default function LoadingCard({ isCelcius }) {
   const classes = useStyles();
 
   return (
@@ -36,7 +32,7 @@ export default function LoadingCard({isCelcius}) {
         >
           ..........
         </Typography>
-        <Typography variant="h2" component="h2">
+        <Typography variant="h6" component="h6">
           --{isCelcius ? "˚C" : "˚F"}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
