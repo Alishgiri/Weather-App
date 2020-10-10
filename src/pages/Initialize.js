@@ -16,10 +16,10 @@ class Initialize extends Component {
 
   render() {
     const {
-      weatherStore: { weatherData },
+      weatherStore: { visibleWeatherData },
     } = this.props;
 
-    if (weatherData) return <Home />;
+    if (visibleWeatherData) return <Home />;
 
     return (
       <Container className="h-100">
