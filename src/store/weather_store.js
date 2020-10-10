@@ -4,6 +4,8 @@ import { action, observable, makeObservable } from "mobx";
 import { appId } from "../util/constants";
 
 export default class WeatherStore {
+  @observable isCelcius = false;
+  @observable isRefreshing = false;
   @observable.ref weatherData = null;
 
   constructor() {
@@ -25,4 +27,10 @@ export default class WeatherStore {
 
   @action
   setWeatherData = (data) => (this.weatherData = data);
+
+  @action
+  setIsCelcius = (value = true) => (this.isCelcius = value);
+
+  @action
+  setIsRefreshing = (value = true) => (this.isRefreshing = value);
 }
