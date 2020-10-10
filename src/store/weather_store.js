@@ -21,7 +21,7 @@ export default class WeatherStore {
     try {
       this.source = Axios.CancelToken.source();
       const res = await Axios.get(
-        `http://api.openweathermap.org/data/2.5/forecast?q=Kathmandu&units=${units}&APPID=${appId}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=Kathmandu&units=${units}&APPID=${appId}`
       );
       this.filterAndSetData(res.data);
     } catch (e) {
