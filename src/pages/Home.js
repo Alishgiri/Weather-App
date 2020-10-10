@@ -2,7 +2,10 @@ import React from "react";
 import Radio from "@material-ui/core/Radio";
 import Paper from "@material-ui/core/Paper";
 import { inject, observer } from "mobx-react";
+import ArrowBack from "@material-ui/icons/ArrowBack";
 import { Col, Container, Row } from "react-bootstrap";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowForward from "@material-ui/icons/ArrowForward";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import InfoCard from "../components/InfoCard";
@@ -25,7 +28,13 @@ class Home extends React.Component {
 
   render() {
     const {
-      weatherStore: { weatherData, isCelcius, isRefreshing },
+      weatherStore: {
+        isCelcius,
+        isRefreshing,
+        onVisibleDateBack,
+        visibleWeatherData,
+        onVisibleDateForward,
+      },
     } = this.props;
     return (
       <Container>
@@ -51,6 +60,14 @@ class Home extends React.Component {
               />
             </Col>
           </Row>
+          <Row className="d-flex my-3 justify-content-between">
+            <IconButton size="medium" onClick={() => onVisibleDateBack()}>
+              <ArrowBack />
+            </IconButton>
+            <IconButton size="medium" onClick={() => onVisibleDateForward()}>
+              <ArrowForward />
+            </IconButton>
+          </Row>
           {isRefreshing ? (
             <Row>
               <Col>
@@ -65,7 +82,7 @@ class Home extends React.Component {
             </Row>
           ) : (
             <Row>
-              {weatherData.map((item, i) => {
+              {visibleWeatherData.map((item, i) => {
                 const dt = item.dt;
                 const jsDate = new Date(dt * 1000);
                 return (
