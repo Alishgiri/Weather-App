@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "mobx-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
@@ -7,14 +8,11 @@ import RootStore from "./store/root_store";
 import * as serviceWorker from "./serviceWorker";
 import Initialize from "./components/Initialize";
 
-export const StoreContext = React.createContext();
-
 const rootStore = new RootStore();
-
 ReactDOM.render(
-  <StoreContext.Provider value={rootStore}>
+  <Provider rootStore={rootStore} weatherStore={rootStore.weatherStore}>
     <Initialize />
-  </StoreContext.Provider>,
+  </Provider>,
   document.getElementById("root")
 );
 
