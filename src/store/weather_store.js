@@ -10,10 +10,12 @@ export default class WeatherStore {
     makeObservable(this);
   }
 
-  fetchWeatherData = async () => {
+  fetchWeatherData = async (isCelcius) => {
+    const units = isCelcius ? "metric" : "imperial";
     try {
+      this.source = Axios.CancelToken.source();
       const res = await Axios.get(
-        `http://api.openweathermap.org/data/2.5/forecast?q=Kathmandu&APPID=${appId}`
+        `http://api.openweathermap.org/data/2.5/forecast?q=Kathmandu&units=${units}&APPID=${appId}`
       );
       this.setWeatherData(res.data);
     } catch (e) {
