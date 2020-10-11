@@ -1,3 +1,3 @@
-## Weather App
+## Weather & Teeko Game App
 
-Using Mobx in a React Project.
+Using Mobx (Redux alternative) in a React Project.
