@@ -37,7 +37,6 @@ export default class TeekoStore {
           alert(`You need to select a "RED" piece.`);
         }
       }
-      console.log("Selected Piece", this.selectedPiece);
       return;
     }
 
