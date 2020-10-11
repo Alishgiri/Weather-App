@@ -8,9 +8,9 @@ import IconButton from "@material-ui/core/IconButton";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
-import InfoCard from "../components/InfoCard";
-import LoadingCard from "../components/LoadingCard";
-import LoadingPlaceholder from "../components/LoadingPlaceholder";
+import InfoCard from "../components/weather_forecast/InfoCard";
+import LoadingCard from "../components/weather_forecast/LoadingCard";
+import LoadingPlaceholder from "../components/weather_forecast/LoadingPlaceholder";
 
 @inject("weatherStore")
 @observer
