@@ -27,7 +27,7 @@ const NavBar = ({ classes }) => {
           <AssignmentInd style={{ color: "#52cbff" }} />
           <MenuItem onClick={navigateTo("/")}>
             <Typography className={classes.menu_item}>
-              Weather Forcast
+              Weather Forecast
             </Typography>
           </MenuItem>
           <MenuItem onClick={navigateTo("/teeko-game")}>
