@@ -10,10 +10,18 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import InfoCard from "../components/InfoCard";
 import LoadingCard from "../components/LoadingCard";
+import LoadingPlaceholder from "../components/LoadingPlaceholder";
 
 @inject("weatherStore")
 @observer
-class Home extends React.Component {
+class WeatherForcast extends React.Component {
+  componentDidMount() {
+    const {
+      weatherStore: { fetchWeatherData },
+    } = this.props;
+    fetchWeatherData();
+  }
+
   _setIsCelcius = async (isCelcius) => {
     const {
       weatherStore: { fetchWeatherData, setIsCelcius, setIsRefreshing },
@@ -36,9 +44,11 @@ class Home extends React.Component {
         onVisibleDateForward,
       },
     } = this.props;
-    return (
+    return !visibleWeatherData ? (
+      <LoadingPlaceholder />
+    ) : (
       <Container>
-        <h1 className="mt-3">Weather App</h1>
+        <h1 className="mt-3">Weather Forcast</h1>
         <Paper className="p-3 p-md-5 mt-4">
           <Row>
             <Col className="d-flex justify-content-center">
@@ -104,4 +114,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default WeatherForcast;
