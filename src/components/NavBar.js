@@ -10,15 +10,9 @@ import { withStyles } from "@material-ui/core/styles";
 import AssignmentInd from "@material-ui/icons/AssignmentInd";
 
 const styles = (theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menu_item: {
-    color: "#697387",
-  },
-  gradient: {
-    backgroundImage: "linear-gradient(to right, #fcfaff, #f2f9fc)",
-  },
+  root: { flexGrow: 1 },
+  menu_item: { color: "#697387" },
+  gradient: { backgroundImage: "linear-gradient(to right, #fcfaff, #f2f9fc)" },
 });
 
 const NavBar = ({ classes }) => {

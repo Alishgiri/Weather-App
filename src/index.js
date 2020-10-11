@@ -10,7 +10,11 @@ import * as serviceWorker from "./serviceWorker";
 
 const rootStore = new RootStore();
 ReactDOM.render(
-  <Provider rootStore={rootStore} weatherStore={rootStore.weatherStore}>
+  <Provider
+    rootStore={rootStore}
+    teekoStore={rootStore.teekoStore}
+    weatherStore={rootStore.weatherStore}
+  >
     <App />
   </Provider>,
   document.getElementById("root")

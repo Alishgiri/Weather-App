@@ -9,8 +9,8 @@ import ArrowForward from "@material-ui/icons/ArrowForward";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import InfoCard from "../components/weather_forecast/InfoCard";
+import LoadingPlaceholder from "../components/LoadingPlaceholder";
 import LoadingCard from "../components/weather_forecast/LoadingCard";
-import LoadingPlaceholder from "../components/weather_forecast/LoadingPlaceholder";
 
 @inject("weatherStore")
 @observer
@@ -47,7 +47,7 @@ class WeatherForcast extends React.Component {
     return !visibleWeatherData ? (
       <LoadingPlaceholder />
     ) : (
-      <Container>
+      <Container fluid>
         <h1 className="mt-3">Weather Forcast</h1>
         <Paper className="p-3 p-md-5 mt-4">
           <Row>
