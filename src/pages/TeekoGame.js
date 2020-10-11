@@ -65,9 +65,8 @@ class TeekoGame extends Component {
                     color={colorIndicator}
                     onClick={() => circleClicked(v)}
                     selectedAreaColor={
-                      selectedPiece === v ? "#FFD700" : "white"
+                      selectedPiece === v ? "#52cbff" : "white"
                     }
-                    //blue "#52cbff"}
                   />
                 );
               })}
