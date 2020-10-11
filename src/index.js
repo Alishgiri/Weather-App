@@ -4,14 +4,14 @@ import { Provider } from "mobx-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
+import App from "./App";
 import RootStore from "./store/root_store";
-import Initialize from "./pages/Initialize";
 import * as serviceWorker from "./serviceWorker";
 
 const rootStore = new RootStore();
 ReactDOM.render(
   <Provider rootStore={rootStore} weatherStore={rootStore.weatherStore}>
-    <Initialize />
+    <App />
   </Provider>,
   document.getElementById("root")
 );
