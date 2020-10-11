@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/WeatherApp/static/css/main.fbd2d56f.chunk.css",
-    "main.js": "/WeatherApp/static/js/main.8e798557.chunk.js",
-    "main.js.map": "/WeatherApp/static/js/main.8e798557.chunk.js.map",
-    "runtime-main.js": "/WeatherApp/static/js/runtime-main.8c7ddbed.js",
-    "runtime-main.js.map": "/WeatherApp/static/js/runtime-main.8c7ddbed.js.map",
-    "static/css/2.11829350.chunk.css": "/WeatherApp/static/css/2.11829350.chunk.css",
-    "static/js/2.9576a880.chunk.js": "/WeatherApp/static/js/2.9576a880.chunk.js",
-    "static/js/2.9576a880.chunk.js.map": "/WeatherApp/static/js/2.9576a880.chunk.js.map",
-    "index.html": "/WeatherApp/index.html",
-    "precache-manifest.438ed7abd3f509753b4eab7c3bf73269.js": "/WeatherApp/precache-manifest.438ed7abd3f509753b4eab7c3bf73269.js",
-    "service-worker.js": "/WeatherApp/service-worker.js",
-    "static/css/2.11829350.chunk.css.map": "/WeatherApp/static/css/2.11829350.chunk.css.map",
-    "static/css/main.fbd2d56f.chunk.css.map": "/WeatherApp/static/css/main.fbd2d56f.chunk.css.map",
-    "static/js/2.9576a880.chunk.js.LICENSE.txt": "/WeatherApp/static/js/2.9576a880.chunk.js.LICENSE.txt"
+    "main.css": "/Weather-TeekoGame-App/static/css/main.bbce343e.chunk.css",
+    "main.js": "/Weather-TeekoGame-App/static/js/main.c874a703.chunk.js",
+    "main.js.map": "/Weather-TeekoGame-App/static/js/main.c874a703.chunk.js.map",
+    "runtime-main.js": "/Weather-TeekoGame-App/static/js/runtime-main.7b450ce5.js",
+    "runtime-main.js.map": "/Weather-TeekoGame-App/static/js/runtime-main.7b450ce5.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/Weather-TeekoGame-App/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.bce12348.chunk.js": "/Weather-TeekoGame-App/static/js/2.bce12348.chunk.js",
+    "static/js/2.bce12348.chunk.js.map": "/Weather-TeekoGame-App/static/js/2.bce12348.chunk.js.map",
+    "index.html": "/Weather-TeekoGame-App/index.html",
+    "precache-manifest.af29a32ba6dd5d45ebc1926dfa18bae0.js": "/Weather-TeekoGame-App/precache-manifest.af29a32ba6dd5d45ebc1926dfa18bae0.js",
+    "service-worker.js": "/Weather-TeekoGame-App/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/Weather-TeekoGame-App/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.bbce343e.chunk.css.map": "/Weather-TeekoGame-App/static/css/main.bbce343e.chunk.css.map",
+    "static/js/2.bce12348.chunk.js.LICENSE.txt": "/Weather-TeekoGame-App/static/js/2.bce12348.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8c7ddbed.js",
-    "static/css/2.11829350.chunk.css",
-    "static/js/2.9576a880.chunk.js",
-    "static/css/main.fbd2d56f.chunk.css",
-    "static/js/main.8e798557.chunk.js"
+    "static/js/runtime-main.7b450ce5.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.bce12348.chunk.js",
+    "static/css/main.bbce343e.chunk.css",
+    "static/js/main.c874a703.chunk.js"
   ]
 }
