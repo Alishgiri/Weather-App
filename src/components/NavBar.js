@@ -7,7 +7,7 @@ import { Typography } from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
-import HomeOutlined from "@material-ui/icons/HomeOutlined";
+import AssignmentInd from "@material-ui/icons/AssignmentInd";
 
 const styles = (theme) => ({
   root: {
@@ -30,7 +30,7 @@ const NavBar = ({ classes }) => {
     <div className={classNames(classes.root)}>
       <AppBar position="static" style={{ boxShadow: "none" }}>
         <Toolbar className={classes.gradient}>
-          <HomeOutlined style={{ color: "#52cbff" }} />
+          <AssignmentInd style={{ color: "#52cbff" }} />
           <MenuItem onClick={navigateTo("/")}>
             <Typography className={classes.menu_item}>
               Weather Forcast
