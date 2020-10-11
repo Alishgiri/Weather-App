@@ -1,6 +1,9 @@
 import { observable, action, makeObservable } from "mobx";
 
-import { teekoValidMoves } from "../util/teeko_game_constants";
+import {
+  teekoValidMoves,
+  teekoWinningStreaks,
+} from "../util/teeko_game_constants";
 
 export default class TeekoStore {
   isBlackTurn = true;
@@ -28,13 +31,17 @@ export default class TeekoStore {
         if (isAllBlackPiecesOnBoard && !isRedReserved) {
           this.selectedPiece = position;
         } else {
-          alert(`You need to select a "BLACK" piece.`);
+          if (!isAllBlackPiecesOnBoard)
+            alert(`Please place "BLACK" in an empty area.`);
+          else alert(`You need to select a "BLACK" piece.`);
         }
       } else {
         if (isAllRedPiecesOnBoard && !isBlackReserved) {
           this.selectedPiece = position;
         } else {
-          alert(`You need to select a "RED" piece.`);
+          if (!isAllRedPiecesOnBoard)
+            alert(`Please place "RED" in an empty area.`);
+          else alert(`You need to select a "RED" piece.`);
         }
       }
       return;
@@ -75,7 +82,28 @@ export default class TeekoStore {
       }
       this.redPositions = [...this.redPositions, position];
     }
+    let redMatched = false;
+    let blackMatched = false;
+
+    teekoWinningStreaks.forEach((streak) => {
+      if (this.evaluater(this.redPositions, streak)) redMatched = true;
+      if (this.evaluater(this.blackPositions, streak)) blackMatched = true;
+    });
+
+    if (redMatched || blackMatched) {
+      const player = redMatched ? "RED" : "BLACK";
+      alert(`CONGRATULATIONS! "${player} PLAYER" WINS!!`);
+      this.redPositions = [];
+      this.isBlackTurn = true;
+      this.blackPositions = [];
+    } else {
+      this.isBlackTurn = !this.isBlackTurn;
+    }
     this.selectedPiece = null;
-    this.isBlackTurn = !this.isBlackTurn;
+  };
+
+  evaluater = (playerPositions, streak) => {
+    if (playerPositions.length <= 3) return false;
+    return playerPositions.every((s) => streak.includes(s));
   };
 }
