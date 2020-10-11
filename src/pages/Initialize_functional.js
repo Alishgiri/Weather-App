@@ -4,6 +4,8 @@ import { Col, Container } from "react-bootstrap";
 
 import Home from "./Home";
 
+// REFERENCE ON HOW TO INJECT STORE ON A FUNCTION COMPONENT
+
 var Initialize = inject("rootStore")(
   observer(({ rootStore: { weatherStore } }) => {
     if (weatherStore.weatherData) return <Home />;
