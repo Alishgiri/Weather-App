@@ -31,17 +31,23 @@ export default class TeekoStore {
         if (isAllBlackPiecesOnBoard && !isRedReserved) {
           this.selectedPiece = position;
         } else {
+          let msg;
           if (!isAllBlackPiecesOnBoard)
-            alert(`Please place "BLACK" in an empty area.`);
-          else alert(`You need to select a "BLACK" piece.`);
+            msg = `Please place "BLACK" in an empty area.`;
+          else if (this.selectedPiece) msg = "Please find an empty slot.";
+          else msg = `You need to select a "BLACK" piece.`;
+          alert(msg);
         }
       } else {
         if (isAllRedPiecesOnBoard && !isBlackReserved) {
           this.selectedPiece = position;
         } else {
-          if (!isAllRedPiecesOnBoard)
-            alert(`Please place "RED" in an empty area.`);
-          else alert(`You need to select a "RED" piece.`);
+          let msg;
+          if (!isAllBlackPiecesOnBoard)
+            msg = `Please place "RED" in an empty area.`;
+          else if (this.selectedPiece) msg = "Please find an empty slot.";
+          else msg = `You need to select a "RED" piece.`;
+          alert(msg);
         }
       }
       return;
