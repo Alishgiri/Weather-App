@@ -16,8 +16,8 @@ export default class WeatherStore {
     makeObservable(this);
   }
 
-  fetchWeatherData = async (isCelcius) => {
-    const units = isCelcius ? "metric" : "imperial";
+  fetchWeatherData = async () => {
+    const units = this.isCelcius ? "metric" : "imperial";
     try {
       this.source = Axios.CancelToken.source();
       const res = await Axios.get(

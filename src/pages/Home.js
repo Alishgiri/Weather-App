@@ -20,7 +20,7 @@ class Home extends React.Component {
     } = this.props;
     setIsCelcius(isCelcius);
     setIsRefreshing();
-    await fetchWeatherData(isCelcius);
+    await fetchWeatherData();
     setIsRefreshing(false);
   };
 
