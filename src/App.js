@@ -3,7 +3,7 @@ import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 import TeekoGame from "./pages/TeekoGame";
-import WeatherForcast from "./pages/WeatherForcast";
+import WeatherForecast from "./pages/WeatherForecast";
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <NavBar />
         <Switch>
-          <Route path="/" exact component={WeatherForcast} />
+          <Route path="/" exact component={WeatherForecast} />
           <Route path="/teeko-game" exact component={TeekoGame} />
           <Redirect to="/" />
         </Switch>

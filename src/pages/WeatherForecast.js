@@ -14,7 +14,7 @@ import LoadingCard from "../components/weather_forecast/LoadingCard";
 
 @inject("weatherStore")
 @observer
-class WeatherForcast extends React.Component {
+class WeatherForecast extends React.Component {
   componentDidMount() {
     const {
       weatherStore: { fetchWeatherData },
@@ -48,7 +48,7 @@ class WeatherForcast extends React.Component {
       <LoadingPlaceholder />
     ) : (
       <Container fluid>
-        <h1 className="mt-3">Weather Forcast</h1>
+        <h1 className="mt-3">Weather Forecast</h1>
         <Paper className="p-3 p-md-5 mt-4">
           <Row>
             <Col className="d-flex justify-content-center">
@@ -114,4 +114,4 @@ class WeatherForcast extends React.Component {
   }
 }
 
-export default WeatherForcast;
+export default WeatherForecast;
