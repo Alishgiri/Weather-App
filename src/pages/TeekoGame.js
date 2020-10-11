@@ -22,13 +22,38 @@ const styles = (theme) => ({
   board_inner: {
     width: 300,
     height: 300,
+    paddingTop: 5,
     borderWidth: 6,
     display: "flex",
     flexWrap: "wrap",
+    paddingBottom: 5,
     alignItems: "center",
     borderStyle: "solid",
     borderColor: "black",
+    position: "relative",
     justifyContent: "center",
+  },
+  emblishment1: {
+    top: 30,
+    left: 30,
+    right: 30,
+    bottom: 30,
+    zPosition: 0,
+    borderWidth: 4,
+    borderColor: "grey",
+    borderStyle: "solid",
+    position: "absolute",
+  },
+  emblishment2: {
+    top: 85,
+    left: 85,
+    right: 85,
+    bottom: 85,
+    zPosition: 0,
+    borderWidth: 4,
+    borderColor: "grey",
+    borderStyle: "solid",
+    position: "absolute",
   },
 });
 
@@ -53,6 +78,8 @@ class TeekoGame extends Component {
         <Col className="d-flex justify-content-center align-items-center">
           <div className={classes.board}>
             <div className={classes.board_inner}>
+              <div className={classes.emblishment1} />
+              <div className={classes.emblishment2} />
               {teekoBlocks.map((v) => {
                 var colorIndicator;
                 if (redPositions.includes(v))

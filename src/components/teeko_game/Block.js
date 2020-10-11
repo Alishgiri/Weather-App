@@ -5,6 +5,7 @@ const styles = (theme) => ({
   block: {
     width: 50,
     height: 50,
+    zIndex: 10,
     borderWidth: 2,
     marginLeft: 2.5,
     display: "flex",
