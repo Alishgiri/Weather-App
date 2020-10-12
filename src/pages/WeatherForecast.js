@@ -32,8 +32,6 @@ class WeatherForecast extends React.Component {
     setIsRefreshing(false);
   };
 
-  setIsRefreshing = (value = true) => this.setState({ isRefreshing: value });
-
   render() {
     const {
       weatherStore: {
