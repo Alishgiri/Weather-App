@@ -7,9 +7,6 @@ import {
 
 export default class TeekoStore {
   isBlackTurn = true;
-  redPlayerIndicator = "#bd172a";
-  blackPlayerIndicator = "#3b3233";
-
   @observable selectedPiece;
   @observable.ref redPositions = [];
   @observable.ref blackPositions = [];

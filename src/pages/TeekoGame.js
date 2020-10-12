@@ -3,8 +3,12 @@ import { inject, observer } from "mobx-react";
 import { Col, Container } from "react-bootstrap";
 import { withStyles } from "@material-ui/core/styles";
 
+import {
+  teekoBlocks,
+  redPlayerIndicator,
+  blackPlayerIndicator,
+} from "../util/teeko_game_constants";
 import Block from "../components/teeko_game/Block";
-import { teekoBlocks } from "../util/teeko_game_constants";
 
 const styles = (theme) => ({
   board: {
@@ -68,8 +72,6 @@ class TeekoGame extends Component {
         circleClicked,
         selectedPiece,
         blackPositions,
-        redPlayerIndicator,
-        blackPlayerIndicator,
       },
     } = this.props;
     return (

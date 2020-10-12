@@ -1,3 +1,6 @@
+export const redPlayerIndicator = "#bd172a";
+export const blackPlayerIndicator = "#3b3233";
+
 export const teekoBlocks = [
   1,
   2,
