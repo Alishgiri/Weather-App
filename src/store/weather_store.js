@@ -41,38 +41,36 @@ export default class WeatherStore {
       requiredData.push(item);
     });
     this.weatherData = requiredData;
-    this.visibleWeatherData = requiredData.slice(
-      this.visibleDateStart,
-      this.visibleDateEnd
-    );
+    this.setVisibleDate();
   };
 
   @action
+  toggleCelciusFarenheit = async (isCelcius) => {
+    this.isRefreshing = true;
+    this.isCelcius = isCelcius;
+    await this.fetchWeatherData();
+    this.isRefreshing = false;
+  };
+
   onVisibleDateForward = () => {
     if (this.visibleDateEnd === this.weatherData.length) return;
     this.visibleDateEnd++;
     this.visibleDateStart++;
-    this.resetVisibleDate();
+    this.setVisibleDate();
   };
 
-  @action
   onVisibleDateBack = () => {
     if (this.visibleDateStart === 0) return;
     this.visibleDateEnd--;
     this.visibleDateStart--;
-    this.resetVisibleDate();
+    this.setVisibleDate();
   };
 
-  resetVisibleDate = () => {
+  @action
+  setVisibleDate = () => {
     this.visibleWeatherData = this.weatherData.slice(
       this.visibleDateStart,
       this.visibleDateEnd
     );
   };
-
-  @action
-  setIsCelcius = (value = true) => (this.isCelcius = value);
-
-  @action
-  setIsRefreshing = (value = true) => (this.isRefreshing = value);
 }

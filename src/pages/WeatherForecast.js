@@ -22,16 +22,6 @@ class WeatherForecast extends React.Component {
     fetchWeatherData();
   }
 
-  _setIsCelcius = async (isCelcius) => {
-    const {
-      weatherStore: { fetchWeatherData, setIsCelcius, setIsRefreshing },
-    } = this.props;
-    setIsCelcius(isCelcius);
-    setIsRefreshing();
-    await fetchWeatherData();
-    setIsRefreshing(false);
-  };
-
   render() {
     const {
       weatherStore: {
@@ -40,6 +30,7 @@ class WeatherForecast extends React.Component {
         onVisibleDateBack,
         visibleWeatherData,
         onVisibleDateForward,
+        toggleCelciusFarenheit,
       },
     } = this.props;
     return !visibleWeatherData ? (
@@ -55,7 +46,7 @@ class WeatherForecast extends React.Component {
                 label="Celcius"
                 checked={isCelcius}
                 control={<Radio />}
-                onChange={(v) => this._setIsCelcius(true)}
+                onChange={(v) => toggleCelciusFarenheit(true)}
               />
             </Col>
             <Col className="d-flex justify-content-center">
@@ -64,7 +55,7 @@ class WeatherForecast extends React.Component {
                 label="Fahrenheit"
                 control={<Radio />}
                 checked={!isCelcius}
-                onChange={(v) => this._setIsCelcius(false)}
+                onChange={(v) => toggleCelciusFarenheit(false)}
               />
             </Col>
           </Row>
