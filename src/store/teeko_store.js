@@ -89,8 +89,8 @@ export default class TeekoStore {
     let blackMatched = false;
 
     teekoWinningStreaks.forEach((streak) => {
-      redMatched = this.evaluater(this.redPositions, streak);
-      blackMatched = this.evaluater(this.blackPositions, streak);
+      if (this.evaluater(this.redPositions, streak)) redMatched = true;
+      if (this.evaluater(this.blackPositions, streak)) blackMatched = true;
     });
 
     if (redMatched || blackMatched) {
