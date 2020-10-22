@@ -2,4 +2,4 @@
 
 Using Mobx (Redux alternative) in a React Project.
 
-[Weather & Teeko Game Live Preview!](https://alishgiri.github.io/Weather-TeekoGame-App)
+[Weather Forecast, Teeko Game, Image Crop Tool and more ! Live Preview!](https://alishgiri.github.io/React-Advanced-Playground) 
