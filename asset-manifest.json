@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Weather-TeekoGame-App/static/css/main.bbce343e.chunk.css",
-    "main.js": "/Weather-TeekoGame-App/static/js/main.c874a703.chunk.js",
-    "main.js.map": "/Weather-TeekoGame-App/static/js/main.c874a703.chunk.js.map",
-    "runtime-main.js": "/Weather-TeekoGame-App/static/js/runtime-main.7b450ce5.js",
-    "runtime-main.js.map": "/Weather-TeekoGame-App/static/js/runtime-main.7b450ce5.js.map",
-    "static/css/2.d9ad5f5c.chunk.css": "/Weather-TeekoGame-App/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.bce12348.chunk.js": "/Weather-TeekoGame-App/static/js/2.bce12348.chunk.js",
-    "static/js/2.bce12348.chunk.js.map": "/Weather-TeekoGame-App/static/js/2.bce12348.chunk.js.map",
-    "index.html": "/Weather-TeekoGame-App/index.html",
-    "precache-manifest.af29a32ba6dd5d45ebc1926dfa18bae0.js": "/Weather-TeekoGame-App/precache-manifest.af29a32ba6dd5d45ebc1926dfa18bae0.js",
-    "service-worker.js": "/Weather-TeekoGame-App/service-worker.js",
-    "static/css/2.d9ad5f5c.chunk.css.map": "/Weather-TeekoGame-App/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.bbce343e.chunk.css.map": "/Weather-TeekoGame-App/static/css/main.bbce343e.chunk.css.map",
-    "static/js/2.bce12348.chunk.js.LICENSE.txt": "/Weather-TeekoGame-App/static/js/2.bce12348.chunk.js.LICENSE.txt"
+    "main.css": "/React-Advanced-Playground/static/css/main.bbce343e.chunk.css",
+    "main.js": "/React-Advanced-Playground/static/js/main.9817396e.chunk.js",
+    "main.js.map": "/React-Advanced-Playground/static/js/main.9817396e.chunk.js.map",
+    "runtime-main.js": "/React-Advanced-Playground/static/js/runtime-main.b97c1583.js",
+    "runtime-main.js.map": "/React-Advanced-Playground/static/js/runtime-main.b97c1583.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/React-Advanced-Playground/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.61d30e1f.chunk.js": "/React-Advanced-Playground/static/js/2.61d30e1f.chunk.js",
+    "static/js/2.61d30e1f.chunk.js.map": "/React-Advanced-Playground/static/js/2.61d30e1f.chunk.js.map",
+    "index.html": "/React-Advanced-Playground/index.html",
+    "precache-manifest.e95cec08743108e8128f60315b5c00b8.js": "/React-Advanced-Playground/precache-manifest.e95cec08743108e8128f60315b5c00b8.js",
+    "service-worker.js": "/React-Advanced-Playground/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/React-Advanced-Playground/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.bbce343e.chunk.css.map": "/React-Advanced-Playground/static/css/main.bbce343e.chunk.css.map",
+    "static/js/2.61d30e1f.chunk.js.LICENSE.txt": "/React-Advanced-Playground/static/js/2.61d30e1f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7b450ce5.js",
+    "static/js/runtime-main.b97c1583.js",
     "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.bce12348.chunk.js",
+    "static/js/2.61d30e1f.chunk.js",
     "static/css/main.bbce343e.chunk.css",
-    "static/js/main.c874a703.chunk.js"
+    "static/js/main.9817396e.chunk.js"
   ]
 }
