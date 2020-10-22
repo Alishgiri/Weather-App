@@ -2,6 +2,7 @@ import React from "react";
 import Radio from "@material-ui/core/Radio";
 import Paper from "@material-ui/core/Paper";
 import { inject, observer } from "mobx-react";
+import { Typography } from "@material-ui/core";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import { Col, Container, Row } from "react-bootstrap";
 import IconButton from "@material-ui/core/IconButton";
@@ -39,6 +40,7 @@ class WeatherForecast extends React.Component {
       <Container fluid>
         <h1 className="mt-3">Weather Forecast</h1>
         <Paper className="p-3 p-md-5 mt-4">
+          <Typography className="mb-4" variant="h6">KATHMANNDU, NEPAL</Typography>
           <Row>
             <Col className="d-flex justify-content-center">
               <FormControlLabel
