@@ -7,7 +7,7 @@ import { Typography } from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
-import AssignmentInd from "@material-ui/icons/AssignmentInd";
+import HomeTwoTone from "@material-ui/icons/HomeTwoTone";
 
 const styles = (theme) => ({
   root: { flexGrow: 1 },
@@ -24,14 +24,19 @@ const NavBar = ({ classes }) => {
     <div className={classNames(classes.root)}>
       <AppBar position="static" style={{ boxShadow: "none" }}>
         <Toolbar className={classes.gradient}>
-          <AssignmentInd style={{ color: "#52cbff" }} />
           <MenuItem onClick={navigateTo("/")}>
+            <HomeTwoTone style={{ color: "#52cbff" }} />
+          </MenuItem>
+          <MenuItem onClick={navigateTo("/weather-forecast")}>
             <Typography className={classes.menu_item}>
               Weather Forecast
             </Typography>
           </MenuItem>
           <MenuItem onClick={navigateTo("/teeko-game")}>
             <Typography className={classes.menu_item}>Teeko Game</Typography>
+          </MenuItem>
+          <MenuItem onClick={navigateTo("/image-crop-tool")}>
+            <Typography className={classes.menu_item}>Image Crop Tool</Typography>
           </MenuItem>
         </Toolbar>
       </AppBar>
