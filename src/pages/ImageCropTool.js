@@ -47,7 +47,7 @@ class ImageCrop extends Component {
                 ].join(" ")}
               >
                 <input {...getInputProps()} />
-                <h6>
+                <h6 className="mb-0">
                   Drag 'n' drop an image here, or click to select an image.
                 </h6>
               </div>
