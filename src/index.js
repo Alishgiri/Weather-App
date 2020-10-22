@@ -14,6 +14,7 @@ ReactDOM.render(
     rootStore={rootStore}
     teekoStore={rootStore.teekoStore}
     weatherStore={rootStore.weatherStore}
+    cropToolStore={rootStore.cropToolStore}
   >
     <App />
   </Provider>,
