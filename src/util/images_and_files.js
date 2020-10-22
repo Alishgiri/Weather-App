@@ -26,36 +26,17 @@ export function base64StringtoFile(base64String, filename) {
   return new File([u8arr], filename, { type: mime });
 }
 
-// Base64 Image to Canvas with a Crop
-export function image64toCanvasRef(canvasRef, image64, pixelCrop) {
-  const canvas = canvasRef; // document.createElement('canvas');
-  canvas.width = pixelCrop.width;
-  canvas.height = pixelCrop.height;
-  const ctx = canvas.getContext("2d");
-  const image = new Image();
-  image.crossOrigin = "anonymous";
-  image.src = image64;
-  image.onload = function () {
-    ctx.drawImage(
-      image,
-      pixelCrop.x,
-      pixelCrop.y,
-      pixelCrop.width,
-      pixelCrop.height,
-      0,
-      0,
-      pixelCrop.width,
-      pixelCrop.height
-    );
-  };
-}
-
 /**
- * @param {HTMLImageElement} image - Image File Object
+ Base64 Image to Canvas with a Crop
+ * @param {String or Base64} image - Image Link/File
  * @param {Object} crop - crop Object
  * @param {String} fileName - Name of the returned file in Promise
  */
-export function getCroppedImg(image, crop, { canvas, fileName = "image" }) {
+export function getCroppedImg(imageSrc, crop, canvasRef, fileName) {
+  const canvas = canvasRef; //document.createElement("canvas");
+  const image = new Image();
+  image.src = imageSrc;
+
   const scaleX = image.naturalWidth / image.width;
   const scaleY = image.naturalHeight / image.height;
   canvas.width = crop.width;
@@ -73,20 +54,20 @@ export function getCroppedImg(image, crop, { canvas, fileName = "image" }) {
     crop.width,
     crop.height
   );
-
-  // As Base64 string
-  //   const base64Image = canvas.toDataURL("image/jpeg");
-  //   return base64Image;
-
-  //   As a blob
   return new Promise((resolve, reject) => {
-    canvas.toBlob(
-      (blob) => {
-        blob.name = fileName;
-        resolve(blob);
-      },
-      "image/jpeg",
-      1
-    );
+    // As Base64 string
+    const base64Image = canvas.toDataURL("image/jpeg");
+    resolve(base64Image);
+
+    // As a blob
+    // canvas.toBlob(
+    //   (blob) => {
+    //     if (!blob) return;
+    //     blob.name = fileName;
+    //     resolve(blob);
+    //   },
+    //   "image/jpeg",
+    //   1
+    // );
   });
 }
