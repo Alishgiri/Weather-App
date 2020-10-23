@@ -3,6 +3,7 @@ const { makeObservable, observable, action } = require("mobx");
 const {
   getCroppedImg,
   downloadBase64File,
+  // getBase64ImageFromUrl,
   extractImageFileExtensionFromBase64,
 } = require("../util/images_and_files");
 
@@ -33,8 +34,8 @@ export default class CropToolStore {
     // reader.readAsDataURL(file);
   };
 
-  // @action
-  // setImageSrc = (src) => (this.imageSrc = src);
+  @action
+  setImageSrc = (src) => (this.imageSrc = src);
 
   @action
   handleCropChange = (crop, percentCrop) => (this.crop = crop);
@@ -59,4 +60,31 @@ export default class CropToolStore {
     const fullFileName = "untitled." + fileExtension;
     downloadBase64File(this.croppedBase64ImageSrc, fullFileName);
   };
+
+  @action
+  onChangeTextField = async (event) => {
+    const imageUrl = event.target.value;
+    // https://pbs.twimg.com/profile_images/558329813782376448/H2cb-84q_400x400.jpeg
+
+    // const imageSrc = getBase64ImageFromUrl(imageUrl);
+    // console.log({ imageUrl, imageSrc });
+    this.toDataURL(imageUrl, (base64dataUrl) => {
+      console.log({ base64dataUrl });
+      this.setImageSrc(base64dataUrl);
+    });
+  };
+
+  toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      };
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+    xhr.send();
+  }
 }
