@@ -25,7 +25,7 @@ const NavBar = ({ classes }) => {
       <AppBar position="static" style={{ boxShadow: "none" }}>
         <Toolbar className={classes.gradient}>
           <MenuItem onClick={navigateTo("/")}>
-            <HomeTwoTone style={{ color: "#52cbff" }} />
+            <HomeTwoTone color="primary" />
           </MenuItem>
           <MenuItem onClick={navigateTo("/weather-forecast")}>
             <Typography className={classes.menu_item}>
@@ -36,7 +36,9 @@ const NavBar = ({ classes }) => {
             <Typography className={classes.menu_item}>Teeko Game</Typography>
           </MenuItem>
           <MenuItem onClick={navigateTo("/image-crop-tool")}>
-            <Typography className={classes.menu_item}>Image Crop Tool</Typography>
+            <Typography className={classes.menu_item}>
+              Image Crop Tool
+            </Typography>
           </MenuItem>
         </Toolbar>
       </AppBar>
