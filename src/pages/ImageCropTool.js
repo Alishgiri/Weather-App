@@ -2,9 +2,11 @@ import Dropzone from "react-dropzone";
 import React, { Component } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
+import Button from "@material-ui/core/Button";
 import { inject, observer } from "mobx-react";
 import { withStyles } from "@material-ui/core";
 import { Col, Row, Container } from "react-bootstrap";
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
 const styles = (theme) => ({
   dropzone: {
@@ -32,6 +34,8 @@ class ImageCrop extends Component {
       handleCropChange,
       handleImageLoaded,
       handleCropComplete,
+      downloadCroppedImage,
+      croppedBase64ImageSrc,
     } = cropToolStore;
     return (
       <Container className="h-100" fluid>
@@ -72,8 +76,24 @@ class ImageCrop extends Component {
               />
             </Col>
             <Col>
-              <h5>Crop Preview</h5>
-              <canvas ref={this.imgPreviewCanvasRef}></canvas>
+              <Row className="d-flex align-items-center mb-2 border-left-1">
+                <h5 className="mb-0">Crop Preview</h5>
+                {croppedBase64ImageSrc && (
+                  <Button
+                    size="medium"
+                    color="primary"
+                    className="ml-3"
+                    variant="outlined"
+                    onClick={downloadCroppedImage}
+                    endIcon={<ArrowDownwardIcon fontSize="inherit" />}
+                  >
+                    Download
+                  </Button>
+                )}
+              </Row>
+              <Row>
+                <canvas ref={this.imgPreviewCanvasRef}></canvas>
+              </Row>
             </Col>
           </Row>
         )}
