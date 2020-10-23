@@ -76,7 +76,7 @@ class TeekoGame extends Component {
     } = this.props;
     return (
       <Container className="h-100" fluid>
-        <h1 className="mt-3">Teeko Game</h1>
+        <h1 className="mt-3 ml-4">Teeko Game</h1>
         <Col className="d-flex justify-content-center align-items-center">
           <div className={classes.board}>
             <div className={classes.board_inner}>

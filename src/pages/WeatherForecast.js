@@ -38,7 +38,7 @@ class WeatherForecast extends React.Component {
       <LoadingPlaceholder />
     ) : (
       <Container fluid>
-        <h1 className="mt-3">Weather Forecast</h1>
+        <h1 className="mt-3 ml-4">Weather Forecast</h1>
         <Paper className="p-3 p-md-5 mt-4">
           <Typography className="mb-4" variant="h6">KATHMANNDU, NEPAL</Typography>
           <Row>
