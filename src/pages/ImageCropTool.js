@@ -32,6 +32,8 @@ class ImageCrop extends Component {
       crop,
       onDrop,
       imageSrc,
+      clearScreen,
+      textfieldUrl,
       handleCropChange,
       handleImageLoaded,
       onChangeTextField,
@@ -41,13 +43,26 @@ class ImageCrop extends Component {
     } = cropToolStore;
     return (
       <Container className="h-100" fluid>
-        <h1 className="mt-3">Image Crop Tool</h1>
+        <Row className="mx-4 my-3 align-items-center">
+          <h1 className="mb-0">Image Crop Tool</h1>
+          {imageSrc && (
+            <Button
+              size="small"
+              className="ml-3"
+              variant="outlined"
+              onClick={clearScreen}
+              style={{ color: "#e0000b" }}
+            >
+              Clear
+            </Button>
+          )}
+        </Row>
         <Row className="w-100 ml-0 px-4">
           <TextField
             fullWidth
             id="image-url"
-            defaultValue=""
             variant="outlined"
+            value={textfieldUrl}
             label="Paste Image URL"
             onChange={onChangeTextField}
             helperText="Paste image url or use an option below."

@@ -3,13 +3,13 @@ const { makeObservable, observable, action } = require("mobx");
 const {
   getCroppedImg,
   downloadBase64File,
-  // getBase64ImageFromUrl,
   extractImageFileExtensionFromBase64,
 } = require("../util/images_and_files");
 
 export default class CropToolStore {
   @observable imageSrc;
   @observable imageRef;
+  @observable textfieldUrl;
   @observable croppedBase64ImageSrc;
   @observable.ref crop = { aspect: 16 / 9 };
 
@@ -38,13 +38,16 @@ export default class CropToolStore {
   setImageSrc = (src) => (this.imageSrc = src);
 
   @action
+  setTextfieldRef = (ref) => (this.textfieldRef = ref);
+
+  @action
+  handleImageLoaded = (image) => (this.imageRef = image);
+
+  @action
   handleCropChange = (crop, percentCrop) => (this.crop = crop);
 
   @action
   setcroppedBase64ImageSrc = (src) => (this.croppedBase64ImageSrc = src);
-
-  @action
-  handleImageLoaded = (image) => (this.imageRef = image);
 
   handleCropComplete = async (crop, percentCrop, canvasRef) => {
     console.log({ percentCrop, crop, "this.imageSrc": this.imageSrc });
@@ -63,12 +66,9 @@ export default class CropToolStore {
 
   @action
   onChangeTextField = async (event) => {
-    const imageUrl = event.target.value;
+    this.textfieldUrl = event.target.value;
     // https://pbs.twimg.com/profile_images/558329813782376448/H2cb-84q_400x400.jpeg
-
-    // const imageSrc = getBase64ImageFromUrl(imageUrl);
-    // console.log({ imageUrl, imageSrc });
-    this.toDataURL(imageUrl, (base64dataUrl) => {
+    this.toDataURL(this.textfieldUrl, (base64dataUrl) => {
       console.log({ base64dataUrl });
       this.setImageSrc(base64dataUrl);
     });
@@ -87,4 +87,13 @@ export default class CropToolStore {
     xhr.responseType = "blob";
     xhr.send();
   }
+
+  @action
+  clearScreen = () => {
+    this.imageSrc = null;
+    this.imageRef = null;
+    this.textfieldUrl = "";
+    this.crop = { aspect: 16 / 9 };
+    this.croppedBase64ImageSrc = null;
+  };
 }
