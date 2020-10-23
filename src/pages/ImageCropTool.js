@@ -76,11 +76,11 @@ class ImageCrop extends Component {
               />
             </Col>
             <Col>
-              <Row className="d-flex align-items-center mb-2 border-left-1">
+              <Row className="d-flex align-items-center mb-3 border-left-1">
                 <h5 className="mb-0">Crop Preview</h5>
                 {croppedBase64ImageSrc && (
                   <Button
-                    size="medium"
+                    size="small"
                     color="primary"
                     className="ml-3"
                     variant="outlined"
