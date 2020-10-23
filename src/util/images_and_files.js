@@ -13,30 +13,14 @@ export function getBase64ImageFromUrl(imgUrl) {
   return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
-// Convert a Base64-encoded string to a File object
-export function base64StringtoFile(base64String, filename) {
-  var arr = base64String.split(","),
-    mime = arr[0].match(/:(.*?);/)[1],
-    bstr = atob(arr[1]),
-    n = bstr.length,
-    u8arr = new Uint8Array(n);
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
-  }
-  return new File([u8arr], filename, { type: mime });
-}
-
 /**
  Base64 Image to Canvas with a Crop
  * @param {String or Base64} image - Image Link/File
  * @param {Object} crop - crop Object
  * @param {String} fileName - Name of the returned file in Promise
  */
-export function getCroppedImg(imageSrc, crop, canvasRef, fileName) {
+export function getCroppedImg(image, crop, canvasRef, fileName) {
   const canvas = canvasRef; //document.createElement("canvas");
-  const image = new Image();
-  image.src = imageSrc;
-
   const scaleX = image.naturalWidth / image.width;
   const scaleY = image.naturalHeight / image.height;
   canvas.width = crop.width;
@@ -70,4 +54,36 @@ export function getCroppedImg(imageSrc, crop, canvasRef, fileName) {
     //   1
     // );
   });
+}
+
+// Convert a Base64-encoded string to a File object
+export function base64StringtoFile(base64String, filename) {
+  var arr = base64String.split(","),
+    mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[1]),
+    n = bstr.length,
+    u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], filename, { type: mime });
+}
+
+// Extract an Base64 Image's File Extension
+export function extractImageFileExtensionFromBase64(base64Data) {
+  return base64Data.substring(
+    "data:image/".length,
+    base64Data.indexOf(";base64")
+  );
+}
+
+// Download a Base64-encoded file
+export function downloadBase64File(base64Data, filename) {
+  const ele = document.createElement("a");
+  ele.setAttribute("href", base64Data);
+  ele.setAttribute("download", filename);
+  ele.style.display = "none";
+  document.body.appendChild(ele);
+  ele.click();
+  document.body.removeChild(ele);
 }
