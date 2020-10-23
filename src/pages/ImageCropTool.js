@@ -5,6 +5,7 @@ import "react-image-crop/dist/ReactCrop.css";
 import Button from "@material-ui/core/Button";
 import { inject, observer } from "mobx-react";
 import { withStyles } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
 import { Col, Row, Container } from "react-bootstrap";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
@@ -33,6 +34,7 @@ class ImageCrop extends Component {
       imageSrc,
       handleCropChange,
       handleImageLoaded,
+      onChangeTextField,
       handleCropComplete,
       downloadCroppedImage,
       croppedBase64ImageSrc,
@@ -40,7 +42,18 @@ class ImageCrop extends Component {
     return (
       <Container className="h-100" fluid>
         <h1 className="mt-3">Image Crop Tool</h1>
-        <Row className="w-100">
+        <Row className="w-100 ml-0 px-4">
+          <TextField
+            fullWidth
+            id="image-url"
+            defaultValue=""
+            variant="outlined"
+            label="Paste Image URL"
+            onChange={onChangeTextField}
+            helperText="Paste image url or use an option below."
+          />
+        </Row>
+        <Row className="w-100 ml-0">
           <Dropzone onDrop={onDrop}>
             {({ getRootProps, getInputProps }) => (
               <div
