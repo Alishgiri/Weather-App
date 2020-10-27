@@ -4,9 +4,11 @@ import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import Button from "@material-ui/core/Button";
 import { inject, observer } from "mobx-react";
-import { withStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { Col, Row, Container } from "react-bootstrap";
+import { Typography, withStyles } from "@material-ui/core";
+import CropPortrait from "@material-ui/icons/CropPortrait";
+import CropLandscape from "@material-ui/icons/CropLandscape";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 
 const styles = (theme) => ({
@@ -33,7 +35,9 @@ class ImageCrop extends Component {
       onDrop,
       imageSrc,
       clearScreen,
+      isLandscape,
       textfieldUrl,
+      setIsLandscape,
       handleCropChange,
       handleImageLoaded,
       onChangeTextField,
@@ -41,6 +45,7 @@ class ImageCrop extends Component {
       downloadCroppedImage,
       croppedBase64ImageSrc,
     } = cropToolStore;
+    const color = "#e0000b";
     return (
       <Container className="h-100" fluid>
         <Row className="mx-4 my-3 align-items-center">
@@ -51,7 +56,7 @@ class ImageCrop extends Component {
               className="ml-3"
               variant="outlined"
               onClick={clearScreen}
-              style={{ color: "#e0000b" }}
+              style={{ color, borderColor: color }}
             >
               Clear
             </Button>
@@ -65,7 +70,7 @@ class ImageCrop extends Component {
             value={textfieldUrl}
             label="Paste Image URL"
             onChange={onChangeTextField}
-            helperText="Paste image url or use an option below."
+            helperText="Paste image url or use an option below. eg. copy & paste this https://images-na.ssl-images-amazon.com/images/I/418aO%2BxDr%2BL._AC_SY355_.jpg"
           />
         </Row>
         <Row className="w-100 ml-0">
@@ -87,43 +92,74 @@ class ImageCrop extends Component {
           </Dropzone>
         </Row>
         {imageSrc && (
-          <Row>
-            <Col className="d-flex justify-content-center align-items-center">
-              <ReactCrop
-                crop={crop}
-                src={imageSrc}
-                onChange={handleCropChange}
-                onComplete={(crop, pixelCrop) =>
-                  handleCropComplete(
-                    crop,
-                    pixelCrop,
-                    this.imgPreviewCanvasRef.current
-                  )
-                }
-                onImageLoaded={handleImageLoaded}
-              />
-            </Col>
-            <Col>
-              <Row className="d-flex align-items-center mb-3 border-left-1">
-                <h5 className="mb-0">Crop Preview</h5>
-                {croppedBase64ImageSrc && (
+          <>
+            <Row className="d-flex mx-4 mb-3 align-items-center">
+              <Col>
+                <Row>
+                  <Typography variant="h5" className="mb-0">
+                    Crop Option:
+                  </Typography>
                   <Button
                     size="small"
                     color="primary"
                     className="ml-3"
                     variant="outlined"
-                    onClick={downloadCroppedImage}
-                    endIcon={<ArrowDownwardIcon fontSize="inherit" />}
+                    onClick={setIsLandscape}
+                    endIcon={
+                      isLandscape ? (
+                        <CropPortrait fontSize="inherit" />
+                      ) : (
+                        <CropLandscape fontSize="inherit" />
+                      )
+                    }
                   >
-                    Download
+                    {isLandscape ? "Portrait" : "Landscape"}
                   </Button>
-                )}
-              </Row>
-              <Row>
-                <canvas ref={this.imgPreviewCanvasRef}></canvas>
-              </Row>
-            </Col>
-          </Row>
+                </Row>
+              </Col>
+              <Col>
+                <Row>
+                  <Typography variant="h5" className="mb-0">
+                    Crop Preview
+                  </Typography>
+                  {croppedBase64ImageSrc && (
+                    <Button
+                      size="small"
+                      color="primary"
+                      className="ml-3"
+                      variant="outlined"
+                      onClick={downloadCroppedImage}
+                      endIcon={<ArrowDownwardIcon fontSize="inherit" />}
+                    >
+                      Download
+                    </Button>
+                  )}
+                </Row>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="d-flex justify-content-center align-items-center">
+                <ReactCrop
+                  crop={crop}
+                  src={imageSrc}
+                  onChange={handleCropChange}
+                  onComplete={(crop, pixelCrop) =>
+                    handleCropComplete(
+                      crop,
+                      pixelCrop,
+                      this.imgPreviewCanvasRef.current
+                    )
+                  }
+                  onImageLoaded={handleImageLoaded}
+                />
+              </Col>
+              <Col>
+                <Row>
+                  <canvas ref={this.imgPreviewCanvasRef}></canvas>
+                </Row>
+              </Col>
+            </Row>
+          </>
         )}
       </Container>
     );

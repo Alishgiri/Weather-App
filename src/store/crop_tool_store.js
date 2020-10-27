@@ -10,6 +10,7 @@ export default class CropToolStore {
   @observable imageSrc;
   @observable imageRef;
   @observable textfieldUrl;
+  @observable isLandscape = true;
   @observable croppedBase64ImageSrc;
   @observable.ref crop = { aspect: 16 / 9 };
 
@@ -35,6 +36,12 @@ export default class CropToolStore {
   };
 
   @action
+  setIsLandscape = () => {
+    this.isLandscape = !this.isLandscape;
+    this.crop = this.isLandscape ? { aspect: 16 / 9 } : { aspect: 2 / 3 };
+  };
+
+  @action
   setImageSrc = (src) => (this.imageSrc = src);
 
   @action
@@ -47,12 +54,12 @@ export default class CropToolStore {
   handleCropChange = (crop, percentCrop) => (this.crop = crop);
 
   @action
-  setcroppedBase64ImageSrc = (src) => (this.croppedBase64ImageSrc = src);
+  setCroppedBase64ImageSrc = (src) => (this.croppedBase64ImageSrc = src);
 
   handleCropComplete = async (crop, percentCrop, canvasRef) => {
     console.log({ percentCrop, crop, "this.imageSrc": this.imageSrc });
     const base64Image = await getCroppedImg(this.imageRef, crop, canvasRef);
-    this.setcroppedBase64ImageSrc(base64Image);
+    this.setCroppedBase64ImageSrc(base64Image);
   };
 
   downloadCroppedImage = (event) => {
