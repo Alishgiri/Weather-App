@@ -40,6 +40,9 @@ const NavBar = ({ classes }) => {
               Image Crop Tool
             </Typography>
           </MenuItem>
+          <MenuItem onClick={navigateTo("/socket-io")}>
+            <Typography className={classes.menu_item}>Socket.io</Typography>
+          </MenuItem>
         </Toolbar>
       </AppBar>
     </div>

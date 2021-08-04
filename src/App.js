@@ -3,6 +3,7 @@ import { ThemeProvider } from "@material-ui/core";
 import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
+import SocketIo from "./pages/Socketio";
 import NavBar from "./components/NavBar";
 import TeekoGame from "./pages/TeekoGame";
 import { appTheme } from "./util/app_theme";
@@ -17,6 +18,7 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/socket-io" exact component={SocketIo} />
             <Route path="/teeko-game" exact component={TeekoGame} />
             <Route path="/image-crop-tool" exact component={ImageCropTool} />
             <Route path="/weather-forecast" exact component={WeatherForecast} />
