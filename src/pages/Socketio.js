@@ -1,38 +1,49 @@
 import React, { Component } from "react";
-import socketIOClient from "socket.io-client";
+import { inject, observer } from "mobx-react";
 
 import { Row, Container } from "react-bootstrap";
 import GameArea from "../components/socket_io/GameArea";
-import RoomsSpace from "../components/socket_io/RoomsSpace";
+import RoomsAndActivities from "../components/socket_io/RoomsAndActivities";
 
+@inject("realTimeGameStore")
+@observer
 class SocketIo extends Component {
-  state = { data: null };
-
   componentDidMount() {
-    const io = socketIOClient("http://localhost:5000/real-time-game-concept", {
-      transports: ["websocket", { upgrade: false }],
-    });
-
-    io.on("event", (data) => {
-      this.setState({ data });
-    });
+    this.props.realTimeGameStore.initializeConnection();
   }
 
-  onChange = () => {};
-
-  onPressBack = () => {};
-
-  onPressForward = () => {};
+  componentWillUnmount() {
+    this.props.realTimeGameStore.closeConnection();
+  }
 
   render() {
+    const {
+      realTimeGameStore: {
+        players,
+        activities,
+        onPressDone,
+        onPressDownward,
+        onPressUpward,
+        onPressJoinRoom,
+        onChangeRoomName,
+        onChangeYourColor,
+      },
+    } = this.props;
     return (
-      <Container className="py-3 h-100 d-flex flex-column">
+      <Container className="py-3 h-100 d-flex flex-column" fluid>
         <h1>Real-Time Game Concept</h1>
         <Row className="d-flex flex-row flex-grow-1">
-          <RoomsSpace onChange={this.onChange} />
           <GameArea
-            onPressBack={this.onPressBack}
-            onPressForward={this.onPressForward}
+            players={players}
+            onPressDownward={onPressDownward}
+            onPressUpward={onPressUpward}
+          />
+          <RoomsAndActivities
+            activities={activities}
+            onPressDone={onPressDone}
+            onPressJoin={onPressJoinRoom}
+            onChangeRoomName={onChangeRoomName}
+            onChangeYourColor={onChangeYourColor}
           />
         </Row>
       </Container>
