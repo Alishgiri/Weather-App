@@ -15,6 +15,7 @@ ReactDOM.render(
     teekoStore={rootStore.teekoStore}
     weatherStore={rootStore.weatherStore}
     cropToolStore={rootStore.cropToolStore}
+    realTimeGameStore={rootStore.socketIoStore}
   >
     <App />
   </Provider>,
