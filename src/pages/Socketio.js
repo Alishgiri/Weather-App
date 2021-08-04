@@ -1,5 +1,5 @@
-import socketIOClient from "socket.io-client";
 import React, { Component } from "react";
+import socketIOClient from "socket.io-client";
 
 import { Row, Container } from "react-bootstrap";
 import GameArea from "../components/socket_io/GameArea";
