@@ -1,38 +1,43 @@
 import socketIOClient from "socket.io-client";
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 
 import { Row, Container } from "react-bootstrap";
 import GameArea from "../components/socket_io/GameArea";
 import RoomsSpace from "../components/socket_io/RoomsSpace";
 
-const SocketIo = () => {
-  const [data, setData] = useState(null);
+class SocketIo extends Component {
+  state = { data: null };
 
-  useEffect(() => {
+  componentDidMount() {
     const io = socketIOClient("http://localhost:5000/real-time-game-concept", {
       transports: ["websocket", { upgrade: false }],
     });
 
     io.on("event", (data) => {
-      setData(data);
+      this.setState({ data });
     });
-  }, []);
+  }
 
-  const onChange = () => {};
+  onChange = () => {};
 
-  const onPressBack = () => {};
+  onPressBack = () => {};
 
-  const onPressForward = () => {};
+  onPressForward = () => {};
 
-  return (
-    <Container className="py-3 h-100 d-flex flex-column">
-      <h1>Real-Time Game Concept</h1>
-      <Row className="d-flex flex-row flex-grow-1">
-        <RoomsSpace onChange={onChange} />
-        <GameArea onPressBack={onPressBack} onPressForward={onPressForward} />
-      </Row>
-    </Container>
-  );
-};
+  render() {
+    return (
+      <Container className="py-3 h-100 d-flex flex-column">
+        <h1>Real-Time Game Concept</h1>
+        <Row className="d-flex flex-row flex-grow-1">
+          <RoomsSpace onChange={this.onChange} />
+          <GameArea
+            onPressBack={this.onPressBack}
+            onPressForward={this.onPressForward}
+          />
+        </Row>
+      </Container>
+    );
+  }
+}
 
 export default SocketIo;
