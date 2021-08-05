@@ -72,8 +72,8 @@ export default class SocketIoStore {
       ];
     } else {
       players = this.players.concat({
-        move: playerMove,
         userColor: playerColor,
+        move: playerMove + this.startMove,
       });
     }
     this.updatePlayers(players);
