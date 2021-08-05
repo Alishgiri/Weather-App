@@ -3,20 +3,25 @@ import { Col, Row, Button } from "react-bootstrap";
 import ArrowUpIcon from "@material-ui/icons/ArrowUpward";
 import ArrowDownIcon from "@material-ui/icons/ArrowDownward";
 
+import "./styles.css";
+
 const GameArea = ({ players, onPressUpward, onPressDownward }) => {
   return (
     <Col className="d-flex flex-column">
       <div className="bg-dark ml-2 my-2 border rounded d-flex flex-grow-1 position-relative">
+        <div id="finish-line" className="py-2">
+          <p className="text-center text-light mb-0">FINISH</p>
+        </div>
         {players &&
           players.map((p, index) => (
             <div
               key={`${p.userColor}:${index}`}
               style={{
                 bottom: p.move,
-                left: (index + 1) * 40,
+                left: (index + 1) * 50,
                 backgroundColor: p.userColor,
               }}
-              className="p-2 rounded position-absolute"
+              className="p-3 rounded position-absolute"
             />
           ))}
       </div>
