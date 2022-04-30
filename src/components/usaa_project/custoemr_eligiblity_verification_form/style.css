@@ -1,0 +1,82 @@
+.form-modal {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    position: absolute;
+    background-color: rgba(157, 157, 157, 0.5);
+}
+
+.form-body {
+    width: 50%;
+    z-index: 30;
+    min-width: 400px;
+    background-color: white;
+}
+
+.form-header {
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(27, 33, 65);
+}
+
+.form-row-contents {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.form-row-contents:nth-child(even) {
+    background-color: rgb(193, 193, 193);
+}
+
+.form-row-contents:nth-child(odd) {
+    background-color: rgb(220, 220, 220);
+}
+
+.form-row-title {
+    font-weight: bold;
+}
+
+.form-row-title, .form-row-value {
+    flex: 1;
+    display: flex;
+}
+
+.form-footer {
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: space-around;
+    background-color: rgb(193, 193, 193);
+}
+
+.form-btn {
+    border: none;
+    color: white;
+    border-radius: 8px;
+    padding: 5px 15px 7px 15px;
+}
+
+.btn-cancel {
+    background-color: rgb(143, 55, 55);
+}
+
+.btn-update {
+    background-color: rgb(84, 143, 55);
+}
