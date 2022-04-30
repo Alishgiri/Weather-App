@@ -175,7 +175,7 @@ class UsaaProject extends Component {
                     <td>{customer.zipCode}</td>
                     <td>{customer.email}</td>
                     <td>{customer.phoneNumber}</td>
-                    <td>{customer.multipleSearchIndicator.toString()}</td>
+                    <td>{customer.multipleSearchIndicator ? "YES" : "NO"}</td>
                     <td>{customer.purchaseDate}</td>
                     <td>{customer.policyEffectiveDate}</td>
                     <td>{customer.termEndDate}</td>
