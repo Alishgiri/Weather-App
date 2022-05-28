@@ -43,6 +43,12 @@ const NavBar = ({ classes }) => {
           <MenuItem onClick={navigateTo("/socket-io")}>
             <Typography className={classes.menu_item}>Socket.io</Typography>
           </MenuItem>
+          <MenuItem onClick={navigateTo("/usaa-project")}>
+            <Typography className={classes.menu_item}>Usaa Project</Typography>
+          </MenuItem>
+          <MenuItem onClick={navigateTo("/react-hooks")}>
+            <Typography className={classes.menu_item}>React Hooks</Typography>
+          </MenuItem>
         </Toolbar>
       </AppBar>
     </div>

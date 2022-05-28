@@ -7,7 +7,9 @@ import SocketIo from "./pages/Socketio";
 import NavBar from "./components/NavBar";
 import TeekoGame from "./pages/TeekoGame";
 import { appTheme } from "./util/app_theme";
+import ReactHooks from "./pages/react_hooks";
 import ImageCropTool from "./pages/ImageCropTool";
+import UsaaProject from "./pages/usaa/UsaaProject";
 import WeatherForecast from "./pages/WeatherForecast";
 
 class App extends Component {
@@ -22,6 +24,8 @@ class App extends Component {
             <Route path="/teeko-game" exact component={TeekoGame} />
             <Route path="/image-crop-tool" exact component={ImageCropTool} />
             <Route path="/weather-forecast" exact component={WeatherForecast} />
+            <Route path="/usaa-project" exact component={UsaaProject} />
+            <Route path="/react-hooks" exact component={ReactHooks} />
             <Redirect to="/" />
           </Switch>
         </ThemeProvider>
