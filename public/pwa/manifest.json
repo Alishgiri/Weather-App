@@ -1,6 +1,7 @@
 {
-  "short_name": "Weather App",
-  "name": "React app with Mobx",
+  "short_name": "My PWA",
+  "name": "PWA Application",
+  "description": "Progressive Web App Tutorial",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,6 +19,7 @@
       "sizes": "512x512"
     }
   ],
+  "scope": "/",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
