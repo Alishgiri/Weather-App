@@ -14,7 +14,10 @@ const Todos = memo(({ todos, addTodo }) => {
 });
 
 const UseCallbackHook = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    let token = window.localStorage.getItem("ac");
+    return token || "no-token";
+  });
   const [todos, setTodos] = useState([]);
 
   const increment = () => {
